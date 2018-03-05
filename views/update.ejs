@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title><%= title%></title>
+    </head>
+    <body>
+    <form action="/users" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="id" value="<%= user._id%>">
+        name:<input type="text" name="name" value="<%= user.name%>"><br>
+        password:<input type="text" name="password" value="<%= user.password%>"><br>
+        <input type="submit" value="修改">
+    </form>
+    </body>
+</html>

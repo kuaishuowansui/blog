@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>基本资料</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <link rel="stylesheet" href="./semantic/semantic.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <style>
+        body {
+            margin-top: auto;
+            margin-left: auto;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            position: absolute;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: darksalmon;
+        }
+
+        #li1 a:hover {
+            border-top-style: solid;
+        }
+
+        .color {
+            color: blanchedalmond;
+            background-color: white;
+            color: crimson;
+        }
+
+        #header {
+            font-size: 40px;
+        }
+
+        .s1 {
+            font-size: 20px;
+        }
+
+        .h3 {
+            font-size: 25px;
+        }
+
+        .s2 {
+            font-size: 80px;
+        }
+
+        @media screen and (max-width:1800px) {
+            .s1 {
+                font-size: 20px;
+            }
+            .h3 {
+                font-size: 25px;
+            }
+            .s2 {
+                font-size: 60px;
+            }
+        }
+
+        ol {
+            list-style: none;
+        }
+
+        ol {
+            position: absolute;
+            width: 100%;
+            padding-left: 10%;
+
+        }
+
+        ol li {
+            width: 100%;
+            left: 0px;
+            position: absolute;
+            display: none;
+            list-style: none;
+            
+
+        }
+
+        
+        #tab1 ul li:hover {
+            color: blanchedalmond;
+            background-color: white;
+            color: crimson;
+
+
+        }
+
+        .s3 {
+            font-size: 10px;
+        }
+
+        @media screen and (max-width:1200px) {
+            .s1 {
+                font-size: 13px;
+            }
+            .s3 {
+                font-size: 8px;
+            }
+            .h3 {
+                font-size: 18px;
+
+            }
+            .s2 {
+                font-size: 60px;
+            }
+        }
+
+        @media screen and (max-width:768px) {
+
+            #header {
+                font-size: 25px;
+            }
+            .s1 {
+                font-size: 8px;
+            }
+            .s3 {
+                font-size: 3px;
+            }
+            .h3 {
+                font-size: 15px;
+            }
+            .s2 {
+                font-size: 60px;
+            }
+        }
+
+        @media screen(max-width:500px) and(min-width:200px) {
+
+            #header {
+                font-size: 15px;
+            }
+            .s1 {
+                font-size: 8px;
+            }
+            .h3 {
+                font-size: 12px;
+            }
+            .s2 {
+                font-size: 40px;
+            }
+            .s3 {
+                font-size: 2px;
+            }
+
+        }
+
+        @media (max-device-width:200px) {
+            #header {
+                font-size: 10px;
+            }
+            .s1 {
+                font-size: 1px;
+            }
+            .h3 {
+                font-size: 8px;
+            }
+            .s2 {
+                font-size: 10px;
+            }
+            .s3 {
+                font-size: 1px;
+            }
+        }
+
+        @media (max-device-width:50px) {
+            #header {
+                font-size: 5px;
+            }
+            .s1 {
+                font-size: 2px;
+            }
+            .h3 {
+                font-size: 5px;
+            }
+            .s2 {
+                font-size: 5px;
+            }
+            .s3 {
+                font-size: 0px;
+            }
+        }
+
+        #view img {
+
+            width: 100%;
+            height: 100%;
+            background-color: #e8e4e5;
+        }
+
+        .upload {
+            width: 30%;
+            height: 50px;
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 20px;
+            position: absolute;
+
+        }
+
+        .upload input {
+            width: 100%;
+            height: 40px;
+            opacity: 0;
+            position: relative;
+            z-index: 1;
+            top: -20px;
+
+        }
+
+    </style>
+
+
+    <script>
+        $(function() {
+            $("#dropdownMenu2").click(function() {
+                $("#menu").slideToggle(1000);
+            });
+
+        })
+        $(function() {
+            $("#dropdownMenu1").click(function() {
+                $("#menu1").slideToggle(1000);
+            });
+
+        })
+        $(function() {
+            var $uli = $("#tab1 ul li");
+            var $oli = $("ol li");
+
+            $uli.click(function() {
+                var index = $(this).index();
+                $uli.eq(index).addClass("color").siblings().removeClass("color");;
+                $oli.eq(index).show().siblings().hide();
+
+
+
+            });
+
+
+        })
+
+    </script>
+    <script>
+        function viewImg(file) {
+            var div = document.getElementById('view');
+            console.log(file.files);
+            var fileRrader = new FileReader();
+            if (file.files && file.files[0]) {
+                fileRrader.readAsDataURL(file.files[0]);
+                fileRrader.onload = function(ev) {
+                    div.innerHTML = "<img src='" + ev.target.result + "'>";
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="jumbotron masthead " style="background-image:url(sucai/headerbg.jpg);background-size: cover;width:100%;height:160px;position: absolute;">
+        <div class="container">
+            <div style="color: white;text-align:center; word-spacing:30px;" id="header">成功者决不放弃 放弃者绝不会成功。</div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-default" style="height:30px;width:100%;background-color: white;position: absolute;margin-top:160px;">
+        <div class="container-fluid dropdown">
+            <ul class=" col-xs-6 " role="navigation" style="list-style: none;color:black;width:100%;margin-top: 10px;" role="navigation">
+                <li style="float:left;margin-left:10%;"><a href="shouye.html" target="_parent">主页</a></li>
+                <li style="float:left;margin-left:5%;">
+
+                    <a href="tuijian.html" target="_parent"> 文章推荐</a> <span class="glyphicon glyphicon-chevron-down" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:firebrick"></span>
+
+
+
+                </li>
+                <li style="float:left;margin-left:3%;"><a href="zhuce.html" target="_blank" style="color:firebrick;">个人中心</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav  nav navbar-nav  navbar-collapse collapse" role="navigation" style="margin-left:52%;margin-top:-28px;" class="hidden-sm hidden-md hidden-mx ">
+                <li style="float:left;"><button class="btn btn-danger">+发布文章</button></li>
+
+                <li><input type="text" class="form-control" placeholder="请填写查询内容"></li>
+                <li style="float:right;"><button class="btn btn-danger">搜索</button></li>
+            </ul>
+
+
+        </div>
+        <ul1 class="dropdown-menu " aria-labelledby="dropdownMenu2" id="menu" style="width:20%; color:white;margin-left:10%;">
+            <li><a href="xiangqingye.html">设计</a></li>
+            <li><a href="# ">web前端</a></li>
+            <li><a href="# ">灵感</a></li>
+            <li><a href="# ">原创</a></li>
+
+        </ul1>
+
+
+    </nav>
+    <div style="width:90%;margin-left:5%;position:absolute;margin-top:250px;background-color: #f5f5f5;">
+        <div id="tab1">
+            <ul style="list-style:none;width:15%;text-align: center;background-color:#f2ecec;position:absolute;">
+                <li class="s2 color" style="text-align: center;margin-left:-40px"><i class="icon file text"></i>
+                    <p class="h3">基本资料</p>
+                </li>
+                <li class="s2 " style="text-align: center;margin-left:-40px"><i class="icon folder open"></i>
+                    <p class="h3">文章管理</p>
+                </li>
+                <li class="s2  " style="text-align: center;margin-left:-40px"><i class="icon location arrow"></i>
+                    <p class="h3">分类管理</p>
+                </li>
+                <li class="s2 " style="text-align: center;margin-left:-40px"><i class="icon trash outline"></i>
+                    <p class="h3">草稿箱</p>
+                </li>
+            </ul>
+
+        </div>
+        <div style="margin-left:15%;background-color: white;width:80%;position: absolute;margin-right: auto;">
+            <ol style="background-color:white;margin-left: auto;">
+                <li style="background-color:black;line-height: 40px;width:100%;height:800px;display:block;" >22222222222</li>
+                <li style="background-color:white;line-height: 40px;width:100%;height:800px;display:none;" class="input-group">
+                    <div style="width:80%;"><span class="s3"><h class="h3">基本资料</h>&nbsp;&nbsp;&nbsp;&nbsp; -修改你的基本资料，将显示在首页博主简介中，并可以让更多的朋友了解和认识你！<br></span ><span class="s3"><h class="h3">昵称:</h>
+                &nbsp;&nbsp;&nbsp;&nbsp;它是显示在首页的名字<br><input type="text" class="form-control" style="width:80%"></span><br>
+                        <span class="s3"><h class="h3">个性签名:</h>
+                &nbsp;&nbsp;&nbsp;&nbsp;你的设计感想或一句话介绍<br><input type="text" class="form-control" style="width:80%"></span><br>
+                        <span class="s3"><h class="h3">职位:</h>
+                &nbsp;&nbsp;&nbsp;&nbsp;曾经担任过或期任的职位<br><input type="text" class="form-control" style="width:80%"></span><br>
+                        <span class="s3"><h class="h3">社交账号:</h>
+                &nbsp;&nbsp;&nbsp;&nbsp;大家可通过更多的渠道关注你。<br>  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1" style="background-color:white;">
+  <i class="icon wechat" style="background-color:white;"></i></span>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" style="width:80%;">
+                    </div>
+                    </span><br>
+                    <button class="btn btn-danger" style="width:20%">确定</button><button class="btn " style="width:20%;background-color:white;">取消</button>
+        </div>
+        <div style="margin-right: auto; margin-left:70%;width:30%;margin-top:-380px;height:80%;text-align: center;">
+           
+            <div id="view" style="width:100%;height:45%;absolute;background-color:#e8e4e5; border-bottom-left-radius: 50%;border-bottom-right-radius: 50%;border-top-left-radius: 50%;border-top-right-radius: 50%;overflow-x: hidden;overflow-y: hidden;"   ></div>
+            <div class="upload" >
+                <button class="btn btn-danger" style="width:100%;">修改头像</button><br>
+                <button class="btn" style="width:100%;color:crimson;background-color:white;">修改密码</button>
+                <input type="file" onchange="viewImg(this)">
+            </div>
+            
+        </div>
+        </li>
+       
+        <li style="background-color:red;">3333</li>
+        <li style="background-color:yellow;">4444</li>
+        </ol>
+    </div>
+
+    </div>
+
+    <footer class="footer s1" style="background-color: black;color:white;height:200px;width:100%;margin-top:1200px;position:absolute;">
+
+        <div style="height:30px;">
+
+            <h3>
+                联系方式
+            </h3>
+            <ul style="list-style: none;margin-top:-30px;width:80%;height:auto">
+                <li style="float:left;border-left-width: thin;border-left-style: solid;padding-left: 30px; margin-left:40%;width:60px;height:30px;">主页</li>
+                <li style="float:left;margin-left:10%;">文章推荐</li>
+                <li style="float:left;margin-left:10%;">个人中心</li>
+            </ul>
+
+
+        </div>
+
+        <div style="margin-top:3%;border-top-width: thin;border-top-style: solid;">
+            个人微信号:liyan_1987<br> 邮箱:liyan@163.com
+            <br> 微博:新浪微博@李阳
+        </div>
+        <div style="margin-left:35%;margin-top:-3%;border-left-width: thin;border-left-style: solid;padding-left:20px;height:90px;">
+            <img src="sucai/654513.jpg" style="width:10%">
+            <div style="margin-top:-40px;margin-left:40%;font-size: 10px;">品牌设计大赛过程揭秘<br>2018-01-08 09:43:11网络</div>
+            <div style="margin-top:-8%;margin-left:70%;font-size: 10px;">Copyright 2016-2017 融智教育 www-w.izedu.com 版权所有 京ICP备17021661号 powered by LuterCMS</div>
+
+
+
+        </div>
+
+    </footer>
+
+<script type="text/javascript" src="./js/wangEditor.min.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor
+    var editor = new E('#editor')
+    // 或者 var editor = new E( document.getElementById('editor') )
+    editor.create()
+
+
+
+
+</body>
+
+</html>
